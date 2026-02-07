@@ -58,7 +58,7 @@
  * This function takes as an input an array ptr and size,
  * it then loops through the array and stores each value
  * in a temporary array. The temporary array is sorted 
- * from small to big. If the array size is even, the 
+ * from small to big. If the array size is odd, the 
  * middle value is returned otherwise the average of the
  * two middle values is returned 
  * 

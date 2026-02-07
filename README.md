@@ -8,7 +8,5 @@ This program performs statistical analytics on a provided dataset. The program c
 - 'stats.c' - Source file with function implementations
 - 'README.md' - Project description
 
-## How to Compile
-Compile the project using GCC
-
-## How to use this
+## Important NOte for LInux Users
+This project utilizes the <math.h> library for rounding calculations. In LInux environments, you must explicitly link the math library during compilation.
