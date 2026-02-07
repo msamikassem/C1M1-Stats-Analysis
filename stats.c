@@ -45,4 +45,29 @@ void main() {
 
 }
 
-/* Add other Implementation File Code Here */
+void print_statistics(unsigned char *arrayptr,int size){
+
+}
+void print_array(unsigned char *arrayptr,int size){
+
+}
+int find_median(unsigned char *arrayptr,int size){
+
+  return 0;
+}
+int find_mean(unsigned  char *arrayptr,int size){
+
+  return 0;
+}
+int find_maximum(unsigned char *arrayptr,int size){
+
+  return 0;
+}
+int find_minimum(unsigned char *arrayptr,int size){
+
+  return 0;
+}
+void sort_array(unsigned char *arrayptr, int size){
+
+  return 0;
+}

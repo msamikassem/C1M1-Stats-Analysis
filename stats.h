@@ -27,20 +27,106 @@
 #ifndef STATS_H
 #define STATS_H
 
-/* Add Your Declarations and Function Comments here */ 
+/**
+ * @brief prints calculated statistical values
+ *
+ * When called, it prints the returned results
+ * from find_median, find_mean, find maximum 
+ * and find_minimum functions. Calculated from
+ * the passed down array
+ *
+ * @param arrayptr pointer to first array element
+ * @param size array size
+ */
+ void print_statistics(unsigned char *arrayptr,int size);
 
 /**
- * @brief <Add Brief Description of Function Here>
+ * @brief Prints an Array
  *
- * <Add Extended Description Here>
- *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- *
- * @return <Add Return Informaiton here>
+ * This function takes as an input an array ptr and size,
+ * loops through the array and prints each value until it
+ * covers the size of the array
+ * 
+ * @param arrayptr pointer to first array element
+ * @param size array size
  */
+ void print_array(unsigned char *arrayptr,int size);
+
+/**
+ * @brief calculates the medain of an array
+ * 
+ * This function takes as an input an array ptr and size,
+ * it then loops through the array and stores each value
+ * in a temporary array. The temporary array is sorted 
+ * from small to big. If the array size is even, the 
+ * middle value is returned otherwise the average of the
+ * two middle values is returned 
+ * 
+ * @param arrayptr pointer to first array element
+ * @param size array size
+ * @return The median of the array 
+ */
+ int find_median(unsigned char *arrayptr,int size);
+
+/**
+ * @brief calculates the mean of an array
+ * 
+ * This function takes as an input an array ptr and size,
+ * it then loops through the array and adds all the value
+ * together. The summed values are then divided by the
+ * size of the array and returned
+ * 
+ * @param arrayptr pointer to first array element
+ * @param size array size
+ * @return The mean of the array
+ */
+ int find_mean(unsigned char *arrayptr,int size);
+
+/**
+ * @brief Finds the maximum value of an array
+ * 
+ * This function takes as an input an array ptr and size,
+ * it then loops through the array comparing the first
+ * value with the second and then storing the biggest
+ * in a temporaryly, the stored value is then compared 
+ * with the next value, the biggest is stored and so on
+ * 
+ * @param arrayptr pointer to first array element
+ * @param size array size
+ * @return The maximum value of the array
+ */
+ int find_maximum(unsigned char *arrayptr,int size);
+
+ /**
+ * @brief Finds the minimum value of an array
+ * 
+ * This function takes as an input an array ptr and size,
+ * it then loops through the array comparing the first
+ * value with the second and then storing the smallest
+ * in a temporaryly, the stored value is then compared 
+ * with the next value, the biggest is stored and so on
+ * 
+ * @param arrayptr pointer to first array element
+ * @param size array size
+ * @return The minimum value of the array
+ */
+ int find_minimum(unsigned char *arrayptr,int size);
+
+ 
+/**
+ * @brief Sorts an array from large to small
+ * 
+ * This function takes as an input an array ptr and size.
+ * It uses bubble sort algorith, where two for loops run
+ * through the array, taking each element and comparing it
+ * with the rest of the elements. shifting it to its right
+ * location in the array 
+ * @param arrayptr pointer to first array element
+ * @param size array size
+ */
+ void sort_array(unsigned char *arrayptr, int size);
+
+
 
 
 #endif /* STATS_H */
