@@ -43,17 +43,19 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-
+  printf("\nOriginal Array:\n");
   print_array(test,SIZE);
+  printf("\nStatistics:\n");
   print_statistics(test,SIZE);
   sort_array(test,SIZE);
+  printf("\nArray After Sorting:\n");
   print_array(test,SIZE);
 
 }
 
 void print_statistics(unsigned char *arrayptr,int size){
 
-  printf("\n###Statistics###\n");
+  
   printf("Median   = %d\n",find_median(arrayptr,size));
   printf("Mean     = %d\n",find_mean(arrayptr,size));
   printf("Maximum  = %d\n",find_maximum(arrayptr,size));
@@ -62,80 +64,65 @@ void print_statistics(unsigned char *arrayptr,int size){
 }
 void print_array(unsigned char *arrayptr,int size){
 
-  printf("\n###Array###\n");
+
   for (int i=0; i<size;i++){
-    printf("%u,",*(arrayptr+i)); //loops through all values
+    printf("%u ",*(arrayptr+i)); //loops through all values
   
-    if(((i+1)%8) == 0){ //for every 8th value start a new line
-      printf("\n");
-    }
+
   }
 
 }
 int find_median(unsigned char *arrayptr,int size){
 
-  float median;
-  unsigned char temp_arr[size];
-  for (int i=0;i<size;i++){
-    temp_arr[i] = *(arrayptr+i); //copies value into a temporary array
-  }
-  //bubble sort (ascending order)
-  for (int i =0;i<size;i++){
-    for(int j=0;j<size-i-1;j++){
-      if(temp_arr[j]>temp_arr[j+1]){
-        char temp = temp_arr[j];
-        temp_arr[j]= temp_arr[j+1];
-        temp_arr[j+1]= temp;
-      }
-    }
-  }
+  int median;
+  sort_array(arrayptr,size);
   if (size%2 == 0){
-    float sum  = temp_arr[(size-1)/2] + temp_arr[((size-1)/2)+1]; //Two middle values divided by 2
+    float sum  = *(arrayptr+((size-1)/2)) + *(arrayptr+((size-1)/2)+1); //Two middle values divided by 2
     median = sum/2;
-    printf("%f\n",median);
+
   }
   else{
-    median = temp_arr[((size-2)/2)+1];
+    median = *(arrayptr+((size-1)/2)+1);
   }
-  print_array(temp_arr,size);
 
-  return round(median);
+
+  return median;
 }
 
 int find_mean(unsigned  char *arrayptr,int size){
 
-  float sum = 0;
+  int sum = 0;
   for (int i=0;i<size;i++){
     sum += *(arrayptr+i);
   }
   float mean = sum/size;
 
-  return round(mean);
+  return mean;
 }
 int find_maximum(unsigned char *arrayptr,int size){
 
-  float greatest = 0;
+  int greatest = 0;
   for (int i=0;i<size;i++){
     if (greatest < *(arrayptr+i)){
       greatest = *(arrayptr+i); //stores the biggest value and compares it with the next element 
     }
   }
-  return round(greatest);
+  return greatest;
 }
 int find_minimum(unsigned char *arrayptr,int size){
 
-  float smallest = *arrayptr;
+  int smallest = *arrayptr;
   for (int i=1;i<size;i++){
     if (smallest > *(arrayptr+i)){
       smallest = *(arrayptr+i); //stores the smalest value and compares it with the next element 
     }
   }
 
-  return round(smallest);
+  return smallest;
 }
 void sort_array(unsigned char *arrayptr, int size){ //Bubble sort (Descending order)
 
-  printf("######Sorted######");
+
   for(int i=0;i<size;i++){
     for(int j=0;j<size-i-1;j++){    
       if(*(arrayptr+j) < *(arrayptr+j+1)){
